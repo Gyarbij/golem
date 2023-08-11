@@ -13,11 +13,6 @@ COPY . .
 RUN pnpm run build
 RUN ls
 
-# Use a second stage to create a smaller image without build dependencies
-FROM node:16-alpine
-
-WORKDIR /app
-
 # Copy built app from previous stage
 COPY --from=builder /app/.output /app
 
