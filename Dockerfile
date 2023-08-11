@@ -10,7 +10,7 @@ RUN yarn global add pnpm && pnpm install
 
 # Copy app source code and build for production
 COPY . .
-RUN pnpm run build
+RUN NODE_ENV=development pnpm i
 RUN ls
 
 # Expose the port and switch to non-root user
