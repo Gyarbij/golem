@@ -13,9 +13,6 @@ COPY . .
 RUN pnpm run build
 RUN ls
 
-# Copy built app from previous stage
-COPY --from=builder /app/.output /app
-
 # Expose the port and switch to non-root user
 EXPOSE 3000
 USER node
